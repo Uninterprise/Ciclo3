@@ -1,0 +1,115 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 20/10/2021, 05:54:46 PM
+    Author     : Yonnier Uni
+*/
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    background-image: url(/Imagen/Inicio-Background2.jpg);
+    background-size: cover;
+    font-weight: bold;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.contenido-Btn{
+    text-align: right;
+    padding-top: 5%;
+    border-bottom: solid 2px #ffffff4D;
+    padding-bottom: 2%;
+}
+.contenido-Btn a{
+    text-shadow: -3px 2px 6px rgba(0,0,30,0.7);
+}
+.contenido-Btn a:hover{
+    text-shadow: -3px 2px 20px rgba(0, 0, 30, 1);
+}
+.contenido-Btn a:active{
+    text-shadow: -3px 2px 6px rgba(0,0,30,1);
+    color: #CCCCCC;
+}
+
+.topBtn{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 120%;
+    padding: 3%;
+}
+
+.topBtn.home{
+    margin-right:  37%;
+    filter: drop-shadow(-3px 2px 6px rgba(0,0,30,0.7));
+
+}
+.topBtn.home img{
+    width: 2%;
+}
+
+.topBtn.home:hover{
+    filter: drop-shadow(-3px 2px 10px rgba(0, 0, 30, 1));
+}
+.topBtn.home:active{
+    filter: drop-shadow(-3px 2px 6px rgba(0,0,30,1));
+}
+
+.topBtn.productos{
+    padding-right:  5%;
+}
+.topBtn.vendedores{
+    padding-right:  5%;
+}
+
+.topBtn.productos:hover{
+    padding-bottom:  2.1%;
+    border-bottom: solid 2px ;
+}
+.topBtn.vendedores:hover{
+    padding-bottom:  2.1%;
+    border-bottom: solid 2px ;
+}
+.topBtn.facturas:hover{
+    padding-bottom:  2.1%;
+    border-bottom: solid 2px ;
+}
+.topBtn.home:hover{
+    padding-bottom:  2.1%;
+    border-bottom: solid 2px ;
+}
+
+
+.modal-contenido{
+  background-color:#00ABAB;
+  width:300px;
+  padding: 10px 20px;
+  margin: 20% auto;
+  position: relative;
+}
+
+.modal-contenido.error{
+  background-color:#FF4A4A;
+}
+
+.modal{
+  background-color: rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  opacity:0;
+  pointer-events:none;
+  transition: all 1s;
+}
+#miModal:target{
+  opacity:1;
+  pointer-events:auto;
+}
+#Error:target{
+  opacity:1;
+  pointer-events:auto;
+}

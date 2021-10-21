@@ -1,0 +1,53 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19/10/2021, 05:29:09 PM
+    Author     : Yonnier Uni
+*/
+
+.top-Texto{
+    text-align: left;
+}
+
+h1{
+    font-size: 300%;
+}
+
+.contenedor-anuncios{
+    display: flex;
+}
+
+.anuncio{
+    width: 40%;
+    margin-left: 1.5%;
+    margin-right:  1.5%;
+    margin-top: 5%;
+    background-color: #E7E7DD;
+    text-align: center;
+    box-shadow:  -14px 6px 15px 3px rgba(0,0,0,0.30);
+}
+
+img{
+    width: 100%;
+}
+
+.boton {
+    color: #ffffff;
+    text-decoration: none;
+    padding:   20px 30% 20px 30%;
+}
+.contenido-anuncio{
+    background: #0F587C;
+    padding-top: 20px;
+    padding-bottom:  20px;
+}
+.contenido-anuncio:hover{
+    background: #116F9E;
+
+}
+.contenido-anuncio:active{
+    background: #0B4E70;
+
+}

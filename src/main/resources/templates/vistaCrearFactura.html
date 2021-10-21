@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Grupo4 P47_C3</title>
+        <link rel="stylesheet" type="text/css" href="/stylesGlobal.css"/>
+        <link rel="stylesheet" type="text/css" href="/stylesCrearGlobal.css"/>
+    </head>
+
+
+    <body>
+
+        <main class="contenedor seccion contenido-centrado">
+            <div class="contenido-Btn">
+                <a href="/bienvenido" class="topBtn home" ><img src="/Imagen/icon-Home.png" alt="Home"/></a>
+                <a href="/productos" class="topBtn productos" >Productos</a>
+                <a href="/vendedores" class="topBtn vendedores" >Vendedores</a>
+                <a href="/facturas" class="topBtn facturas" >Facturas</a>
+            </div>
+            <h2>CREAR FACTURA</h2>
+            <form th:action="@{/crear/factura}" th:object="${factura}" method="post" class="contacto">
+                <fieldset>
+                    <label> Número de factura:</label>
+                    <input id="numerofactura" type="text" th:field="*{numeroFactura}" required/>
+                    <label> Código del Producto:</label>
+                    <!--input id="codigoproducto" type="text" th:field="*{producto.codProducto}" /-->
+
+                    <select th:field="*{producto}" class="form-control form-control-sm col-md-6" id="vendedor" required>
+                        <option th:each="producto:${productos}"
+                                th:value="${producto.codProducto}"
+                                th:text="${producto.nombreProducto}"
+                                />    
+                    </select>
+
+                    <label> Fecha de venta:</label>
+                    <input id="fecha" type="date" th:field="*{fechaVenta}" required/> 
+                    <label> Código del Vendedor:</label>
+                    <!--input id="codigovendedor" type="text" th:field="*{vendedor.codVendedor}" /-->
+
+                    <select th:field="*{vendedor}" class="form-control form-control-sm col-md-6" id="vendedor" required>
+                        <option th:each="vendedor:${vendedores}"
+                                th:value="${vendedor.codVendedor}"
+                                th:text="${vendedor.nombreVendedor}"
+                                />    
+                    </select>
+
+                    <label> Precio del Producto($):</label>
+                    <input id="valorfactura" type="text" th:field="*{valorFactura}" required />   
+                    <button type="submit" class="boton boton-submit">Agregar Factura</button>
+
+                </fieldset>
+            </form>
+        </main>
+          <div id="miModal" class="modal">
+            <div class="modal-contenido">
+                <a href="#">X</a>
+                <h2>Good job!</h2>
+                <p>Solicitud realizada con exito</p>
+            </div>  
+        </div>
+        
+        <div id="Error" class="modal">
+            <div class="modal-contenido error">
+                <a href="#">X</a>
+                <h2>ERROR</h2>
+                <p>No se pudo realizar la solicitud, hay campos vacios</p>
+            </div>  
+        </div>
+    </body>
+
+</html>

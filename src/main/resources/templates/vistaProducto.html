@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title >Listado productos</title>
+        <meta charset="UTF-8"> </meta>
+        <link rel="stylesheet" href="stylesGlobal.css"/>
+        <link rel="stylesheet"  href="stylesVistaGlobal.css"/>
+    </head>
+
+    <body>
+        <main class="contenedor-seccion">
+
+            <div class="contenido-Btn">
+                <a href="/bienvenido" class="topBtn home" ><img src="/Imagen/icon-Home.png" alt="Home"/></a>
+                <a href="/productos" class="topBtn productos" >Productos</a>
+                <a href="/vendedores" class="topBtn vendedores" >Vendedores</a>
+                <a href="/facturas" class="topBtn facturas" >Facturas</a>
+            </div>
+
+            <div class="container-lista">
+                <h2 >LISTA DE PRODUCTOS</h2>
+                <a href="/crear/producto" class="btn btn-nuevo"><h6>+ Nuevo producto</h6></a>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="producto: ${productos}">
+                            <td th:text="${producto.codProducto}"></td>
+                            <td th:text="${producto.nombreProducto}"></td>
+                            <td th:text="${producto.descripcionProducto}"></td>
+                            <td th:text="${producto.precioProducto}"></td>
+                            <td class="boton-acciones">
+                                <a th:href="@{/editar/}+${producto.codProducto}" class="btn btn-opc">Editar</a>
+                                <a class="btn btn-opc" th:href="@{/eliminarProd/}+${producto.codProducto}"  th:object="${producto}">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <div id="miModal" class="modal">
+            <div class="modal-contenido">
+                <a href="#">X</a>
+                <h2>Good job!</h2>
+                <p>Solicitud realizada con exito</p>
+            </div>  
+        </div>
+
+        <div id="Error" class="modal">
+            <div class="modal-contenido error">
+                <a href="#">X</a>
+                <h2>ERROR</h2>
+                <p>No se pudo realizar la solicitud, porque el producto pertenece a una factura</p>
+            </div>  
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8"> </meta>
+        <!-- <link rel="stylesheet" , href="styles.css"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <title>Consultar Vendedores</title>
+        <link rel="stylesheet" href="stylesGlobal.css"/>    
+        <link rel="stylesheet"  href="stylesVistaGlobal.css"/>
+
+    </head>
+
+
+    <body>   
+        <div class="contenido-Btn">
+            <a href="/bienvenido" class="topBtn home" ><img src="/Imagen/icon-Home.png" alt="Home"/></a>
+            <a href="/productos" class="topBtn productos" >Productos</a>
+            <a href="/vendedores" class="topBtn vendedores" >Vendedores</a>
+            <a href="/facturas" class="topBtn facturas" >Facturas</a>
+        </div>
+
+        <div class="container-lista">
+            <h2>LISTA DE VENDEDORES</h2>
+            <a href="/crear/vendedor" class="btn btn-nuevo"><h6>+ Nuevo vendedor</h6></a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="vendedor: ${vendedores}">
+                        <td th:text="${vendedor.codVendedor}"></td>
+                        <td th:text="${vendedor.nombreVendedor}"></td>
+                        <td class="boton-acciones">
+                            <a th:href="@{/editarVend/}+${vendedor.codVendedor}" class="btn btn-opc">Editar</a>
+                            <a  class="btn btn-opc" th:href="@{/eliminar/}+${vendedor.codVendedor}"  th:object="${vendedor}">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>     
+        <!--a href="#Error">Abrir Modal</a>
+        <a href="#miModal">Abrir Modal</a-->
+        <div id="miModal" class="modal">
+            <div class="modal-contenido">
+                <a href="#">X</a>
+                <h2>Good job!</h2>
+                <p>Solicitud realizada con exito</p>
+            </div>  
+        </div>
+        
+        <div id="Error" class="modal">
+            <div class="modal-contenido error">
+                <a href="#">X</a>
+                <h2>ERROR</h2>
+                <p>No se pudo realizar la solicitud</p>
+            </div>  
+        </div>
+        
+    </body>
+
+</html>

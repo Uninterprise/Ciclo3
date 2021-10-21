@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Listado Facturas</title>
+        <meta charset="UTF-8"> </meta>
+        <link rel="stylesheet" href="stylesGlobal.css"/>
+        <link rel="stylesheet"  href="stylesVistaGlobal.css"/>
+
+    </head>
+    <!--a href="/bienvenido" style="text-decoration: none; color: #fff; font-size: 20px;">Home</a>
+    <a href="/crear/factura" style="text-decoration: none; color: #fff; font-size: 20px;">Nuevo</a-->
+
+    <body>
+        <div class="contenido-Btn">
+            <a href="/bienvenido" class="topBtn home" ><img src="/Imagen/icon-Home.png" alt="Home"/></a>
+            <a href="/productos" class="topBtn productos" >Productos</a>
+            <a href="/vendedores" class="topBtn vendedores" >Vendedores</a>
+            <a href="/facturas" class="topBtn facturas" >Facturas</a>
+        </div>
+
+        <div class="container-lista">
+            <h2>LISTA DE FACTURAS</h2>
+            <a href="/crear/factura" class="btn btn-nuevo"><h6>+ Nueva factura</h6></a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID </th>
+                        <th>No.Fac </th>
+                        <th>Cod.Prod</th>
+                        <th>Fecha </th>
+                        <th>Cod.Vend</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="factura: ${facturas}">
+                        <td th:text="${factura.idVenta}"></td>
+                        <td th:text="${factura.numeroFactura}"></td>
+                        <td th:text="${factura.producto.codProducto}"></td>
+                        <td th:text="${factura.fechaVenta}"></td>
+                        <td th:text="${factura.vendedor.codVendedor}"></td>
+                        <td class="boton-acciones">
+                            <a th:href="@{/editarFact/}+${factura.numeroFactura}" class="btn btn-opc">Editar</a>
+                            <a class="btn btn-opc" th:href="@{/eliminarFact/}+${factura.idVenta}"  th:object="${factura}">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+          <div id="miModal" class="modal">
+            <div class="modal-contenido">
+                <a href="#">X</a>
+                <h2>Good job!</h2>
+                <p>Solicitud realizada con exito</p>
+            </div>  
+        </div>
+        
+        <div id="Error" class="modal">
+            <div class="modal-contenido error">
+                <a href="#">X</a>
+                <h2>ERROR</h2>
+                <p>No se pudo realizar la solicitud</p>
+            </div>  
+        </div>
+    </body>
+
+</html>

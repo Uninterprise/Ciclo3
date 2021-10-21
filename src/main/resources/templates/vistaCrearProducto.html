@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8"> </meta>
+
+        <title >Crear producto</title>
+        <link rel="stylesheet" type="text/css" href="/stylesGlobal.css"/>
+        <link rel="stylesheet" type="text/css" href="/stylesCrearGlobal.css"/>
+    </head>
+
+    <body>
+        <main>    
+            <div class="contenido-Btn">
+                <a href="/bienvenido" class="topBtn home" ><img src="/Imagen/icon-Home.png" alt="Home"/></a>
+                <a href="/productos" class="topBtn productos" >Productos</a>
+                <a href="/vendedores" class="topBtn vendedores" >Vendedores</a>
+                <a href="/facturas" class="topBtn facturas" >Facturas</a>
+            </div>
+            <h2>CREAR PRODUCTO</h2> 
+            <form th:action="@{/crear/producto}" th:object="${producto}" method="post">
+                <fieldset>
+                    <label> Código del Producto </label>
+                    <input id="codigoproducto" type="text" th:field="*{codProducto}" required/>
+                    <label> Nombre del Producto </label>
+                    <input id="nombreproducto" type="text" th:field="*{nombreProducto}" required/>
+                    <label> Descripción Producto</label>
+                    <input id="descripcionproducto" type="text" th:field="*{descripcionProducto}" required/>
+                    <label> Precio del Producto ($)</label>
+                    <input id="precioproducto" type="text" th:field="*{precioProducto}" required/>
+                    <button type="submit" class="boton boton-submit">Agregar Producto</button>
+
+                </fieldset>
+
+            </form>
+        </main>
+          <div id="miModal" class="modal">
+            <div class="modal-contenido">
+                <a href="#">X</a>
+                <h2>Good job!</h2>
+                <p>Solicitud realizada con exito</p>
+            </div>  
+        </div>
+        
+        <div id="Error" class="modal">
+            <div class="modal-contenido error">
+                <a href="#">X</a>
+                <h2>ERROR</h2>
+                <p>No se pudo realizar la solicitud, hay campos vacios</p>
+            </div>  
+        </div>
+    </body>
+
+</html>
